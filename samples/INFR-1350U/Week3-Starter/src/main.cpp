@@ -118,7 +118,7 @@ bool loadShaders() {
 	glCompileShader(vs);
 	GLuint fs = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fs, 1, &fs_str, NULL);
-	glCompileShader(fs);
+	glCompileShader(fs);    
 
 	shader_program = glCreateProgram();
 
