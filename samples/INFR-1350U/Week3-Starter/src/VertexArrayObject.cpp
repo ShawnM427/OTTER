@@ -33,6 +33,14 @@ void VertexArrayObject::AddVertexBuffer(VertexBuffer* buffer, const std::vector<
 	binding.Buffer = buffer;
 	binding.Attributes = attributes;
 	_vertexBuffers.push_back(binding);
+
+	Bind();
+	buffer->Bind();
+	for (const BufferAttribute& attrib : attributes) {
+		glEnableVertexArrayAttrib(_handle, attrib.Slot);
+		glVertexAttribPointer(attrib.Slot, attrib.Size, attrib.Type, attrib.Normalized, attrib.Stride, (void*)attrib.Offset);
+	}
+	UnBind();
 }
 
 void VertexArrayObject::Bind() {
