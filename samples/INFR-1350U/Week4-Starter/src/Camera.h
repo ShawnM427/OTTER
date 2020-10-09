@@ -63,6 +63,8 @@ public:
 	/// </summary>
 	const glm::vec3& GetUp() const { return _up; }
 
+	float GetFovDegrees() const { return glm::degrees(_fovRadians); }
+	
 	/// <summary>
 	/// Gets the view matrix for this camera
 	/// </summary>
